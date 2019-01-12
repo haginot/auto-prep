@@ -2,7 +2,7 @@ from os import listdir
 from os.path import isfile, join
 import pandas as pd
 
-class RawData():
+class TrainingData():
     def __init__(self,
                  path):
         self.path = path

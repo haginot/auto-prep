@@ -1,4 +1,4 @@
-from autoprep.utils.raw_data import RawData
+from autoprep.training_data import TrainingData
 
 import pandas as pd
 
@@ -11,12 +11,8 @@ class Preparator:
 
     def __init__(self, input_path):
         self.input_path = input_path
-        self.raw_data = RawData(self.input_path)
+        self.raw_data = TrainingData(self.input_path)
         self.prepared_data = PreparedData()
-
-    def to_csv(self):
-        # TODO To be constructed
-        pass
 
     def group_schema(self):
         unique_keys = []
@@ -39,7 +35,11 @@ class Preparator:
             ))
         self.prepared_data.concated_dfs = concated_dfs
 
+    def prepare(self):
+        return {} #List[PreparedData]
 
 class PreparedData:
     # TODO To be constructed
-    pass
+    def to_csv(self):
+        # TODO To be constructed
+        pass

@@ -3,7 +3,7 @@ import tempfile
 import unittest
 import shutil
 
-from autoprep.utils.raw_data import RawData
+from autoprep.training_data import TrainingData
 
 
 class TestRawData(unittest.TestCase):
@@ -55,7 +55,7 @@ No.,選手名,守備,生年月日,年齢,年数,身長,体重,血液型,投打,�
         shutil.rmtree(self.test_dir)
 
     def test_raw_data(self):
-        rd = RawData(self.test_dir)
+        rd = TrainingData(self.test_dir)
         raws = rd.get_raws()
 
         self.assertEqual(len(raws), self.num_test_file)
