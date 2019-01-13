@@ -12,6 +12,9 @@ class TypeDetector:
 
     @staticmethod
     def to_numeric(s: Series):
+        if s.dtype.name != 'object':
+            return None
+
         num_extracted = s.fillna('0').str.extract(r'^[^0-9]*([0-9,]+)([^0-9]*)$')
         unit = ''
         if num_extracted.keys().size > 1:
@@ -27,6 +30,9 @@ class TypeDetector:
 
     @staticmethod
     def to_datetimelike(s: Series):
+        if s.dtype.name != 'object':
+            return None
+
         sample = s.unique()[0]
         groups = []
         while True:
