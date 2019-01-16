@@ -6,7 +6,7 @@ def read(filename):
 
 
 setup(
-    name="autoprep",
+    name="auto-prep",
     version="0.0.1",
     author="Hagino Takahiro",
     author_email="haginota@gmail.com",
@@ -18,5 +18,6 @@ setup(
     packages=['autoprep'],
     long_description=read('README.md'),
     long_description_content_type="text/markdown",
+    install_requires=['numpy', 'pandas'],
     classifiers=[]
 )
