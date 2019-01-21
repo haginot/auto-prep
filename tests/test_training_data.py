@@ -60,9 +60,9 @@ No.,選手名,守備,生年月日,年齢,年数,身長,体重,血液型,投打,�
 
         self.assertEqual(len(raws), self.num_test_file)
 
-        self.assertIn('__NAME__', raws[0].keys())
-        self.assertEqual(len(raws[0].__NAME__.unique()), 1)
-        self.assertEqual(raws[0].__NAME__.unique()[0], 'test_data_0.csv')
+        self.assertIn('__FILENAME__', raws[0].keys())
+        self.assertEqual(len(raws[0].__FILENAME__.unique()), 1)
+        self.assertEqual(raws[0].__FILENAME__.unique()[0], 'test_data_0.csv')
 
 
 

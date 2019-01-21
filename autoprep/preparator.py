@@ -50,7 +50,7 @@ class PreparedData:
         self.pmetas = []
 
         for k, s in self.raw.iteritems():
-            if k in ['__NAME__']:
+            if k in ['__FILENAME__']:
                 self._set_column(k, s, const.TYPE_CAT, False)
                 continue
 
@@ -87,7 +87,6 @@ class PreparedData:
         if len(self.serieses) > 1:
             self.df: pd.DataFrame = pd.concat(self.serieses, axis=1, keys=self.keys)
 
-
     def _set_column(self,
                     key_name: str,
                     series: pd.Series,
@@ -102,9 +101,28 @@ class PreparedData:
     def to_csv(self, path):
         self.df.to_csv(path)
 
+
 class PreparedMeta:
     def __init__(self,
                  is_key: bool,
-                 unit: str = None):
+                 unit: str = None,
+                 distinct_count: int = None,
+                 unique_rate: float = None,
+                 missing_count: int = None,
+                 missing_rate: float = None,
+                 mean: float = None,
+                 maximum: float = None,
+                 minimum: float = None,
+                 target_corr: float = None,
+                 ):
         self.is_key = is_key
         self.unit = unit
+        self.distinct_count = distinct_count,
+        self.unique_rate = unique_rate,
+        self.missing_count = missing_count,
+        self.missing_rate = missing_rate,
+        self.mean = mean,
+        self.maximum = maximum,
+        self.minimum = minimum,
+        self.target_corr = target_corr,
+
