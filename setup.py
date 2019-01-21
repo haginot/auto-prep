@@ -15,7 +15,7 @@ setup(
     license="Apache Software License",
     keywords="automl preprocessing",
     url="https://github.com/haginot/auto-prep",
-    packages=['autoprep'],
+    packages=['autoprep', 'autoprep.utils'],
     long_description=read('README.md'),
     long_description_content_type="text/markdown",
     install_requires=['numpy', 'scipy', 'pandas'],
