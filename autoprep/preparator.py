@@ -7,9 +7,8 @@ import autoprep.constants as const
 
 class Preparator:
 
-    def __init__(self, input_path):
-        self.input_path = input_path
-        self.raw_data = TrainingData(self.input_path)
+    def __init__(self, raw_data: TrainingData):
+        self.raw_data = raw_data
         self.concated_datas = []
         self._concat_schema()
         self.type_detector = TypeDetector()
