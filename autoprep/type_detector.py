@@ -33,7 +33,7 @@ class TypeDetector:
         if s.dtype.name != 'object':
             return None
 
-        sample = s.unique()[0]
+        sample = s.dropna().unique()[0]
         groups = []
         while True:
             match = re.search(r'^([0-9]+)([^0-9]?)(.*)$', sample)
