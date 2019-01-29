@@ -4,6 +4,7 @@ import shutil
 import unittest
 
 from autoprep.preparator import Preparator, PreparedData
+from autoprep.training_data import TrainingData
 
 
 class TestPreparator(unittest.TestCase):
@@ -83,12 +84,13 @@ No.,選手名,守備,生年月日,年齢,年数,身長,体重,血液型,投打,�
             self.test_file = os.path.join(self.test_dir, f"test_data_{i}.csv")
             with open(self.test_file, 'w') as fp:
                 fp.write(self.test_content[i])
+        self.raw_data = TrainingData(self.test_dir)
 
     def tearDown(self):
         shutil.rmtree(self.test_dir)
 
     def test_prepare(self):
-        p = Preparator(self.test_dir)
+        p = Preparator(self.raw_data)
         prepared = p.prepare()
         self.assertIsInstance(prepared, list)
         self.assertEqual(len(prepared), self.num_test_group)

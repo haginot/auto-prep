@@ -17,4 +17,4 @@ class TrainingData():
 
     def _update_source(self):
         for i, file_name in enumerate(self.files):
-            self.dfs[i]['__NAME__'] = file_name
+            self.dfs[i]['__FILENAME__'] = file_name
