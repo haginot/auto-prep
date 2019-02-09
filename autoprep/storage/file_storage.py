@@ -14,7 +14,7 @@ class FileStorage(Storage):
         self.__data_tables = {}
 
     def get_table_names(self):
-        return self.__tables.keys()
+        return list(self.__tables.keys())
 
     def get_table_lists(self):
         return self.__tables
@@ -23,7 +23,7 @@ class FileStorage(Storage):
         if name in self.__data_tables:
             return self.__data_tables[name]
         else:
-            self.__data_tables[name] = pd.read_csv(self.__tables[name].file_path, index_col=None, encoding='UTF-8')
+            self.__data_tables[name] = pd.read_csv(self.__tables[name]['file_path'], index_col=None, encoding='UTF-8')
             return self.__data_tables[name]
 
 
