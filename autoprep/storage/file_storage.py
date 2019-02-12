@@ -2,7 +2,7 @@ from os import listdir, stat
 from os.path import isfile, join
 import pandas as pd
 
-from autoprep.storage.storage import Storage
+from autoprep.storage.training_storage_mixin import Storage
 
 
 class FileStorage(Storage):
