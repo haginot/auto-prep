@@ -2,16 +2,24 @@ from os import listdir, stat
 from os.path import isfile, join
 import pandas as pd
 
-from autoprep.storage.training_storage_mixin import Storage
+from autoprep.storage.base.base_storage import BaseStorage
+from autoprep.storage.base.model_storage_mixin import ModelStorageMixin
+from autoprep.storage.base.training_storage_mixin import TrainingStorageMixin
 
 
-class FileStorage(Storage):
+class FileStorage(BaseStorage, TrainingStorageMixin, ModelStorageMixin):
     def __init__(self, path: str):
         self.__tables = {f.replace('.csv', ''): {
             'file_path': join(path, f),
             'file_size': stat(join(path, f)).st_size,
         } for f in [f for f in listdir(path) if isfile(join(path, f)) and f.endswith('.csv')]}
         self.__data_tables = {}
+
+    def is_training_storage(self):
+        return super(TrainingStorageMixin).is_training_storage()
+
+    def is_model_storage(self):
+        return super(ModelStorageMixin).is_model_storage()
 
     def get_table_names(self):
         return list(self.__tables.keys())

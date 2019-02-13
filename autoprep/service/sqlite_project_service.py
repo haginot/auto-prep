@@ -1,3 +1,6 @@
+from autoprep.service.project_service import ProjectService
+
+
 class SQLiteProjectService(ProjectService):
 
     def get_projects(self):

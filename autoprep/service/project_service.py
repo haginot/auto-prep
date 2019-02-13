@@ -1,12 +1,12 @@
 import abc
-from typing import List
+from typing import List, Dict
 
 from autoprep.project import Project
 
 
 class ProjectService(abc.ABC):
     @abc.abstractmethod
-    def get_projects(self) -> List[Project]:
+    def get_projects(self) -> Dict[str, Project]:
         pass
 
     @abc.abstractmethod
