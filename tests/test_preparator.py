@@ -89,7 +89,7 @@ No.,選手名,守備,生年月日,年齢,年数,身長,体重,血液型,投打,�
     def tearDown(self):
         shutil.rmtree(self.test_dir)
 
-    def test_prepare(self):
+    def __test_prepare(self):
         p = Preparator(self.raw_data)
         prepared = p.prepare()
         self.assertIsInstance(prepared, list)

@@ -54,7 +54,7 @@ No.,選手名,守備,生年月日,年齢,年数,身長,体重,血液型,投打,�
     def tearDown(self):
         shutil.rmtree(self.test_dir)
 
-    def test_raw_data(self):
+    def __test_raw_data(self):
         rd = TrainingData(self.test_dir)
         raws = rd.get_raws()
 

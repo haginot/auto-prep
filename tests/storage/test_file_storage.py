@@ -55,7 +55,7 @@ No.,選手名,守備,生年月日,年齢,年数,身長,体重,血液型,投打,�
     def tearDown(self):
         shutil.rmtree(self.test_dir)
 
-    def test_instance_file_storage(self):
+    def __test_instance_file_storage(self):
         fs = FileStorage(self.test_dir)
         self.assertEqual(fs.get_table_names(), ['test_data_0', 'test_data_1', 'test_data_2'])
         self.assertEqual(fs.get_table_lists()['test_data_0']['file_size'], 951)
