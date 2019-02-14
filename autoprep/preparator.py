@@ -1,13 +1,13 @@
 import pandas as pd
 
-from autoprep.training_data import TrainingData
+from autoprep.train_data import TrainData
 from autoprep.type_detector import TypeDetector
 import autoprep.constants as const
 
 
 class Preparator:
 
-    def __init__(self, raw_data: TrainingData):
+    def __init__(self, raw_data: TrainData):
         self.raw_data = raw_data
         self.concated_datas = []
         self._concat_schema()

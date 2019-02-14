@@ -1,14 +1,15 @@
 from autoprep.problem import Problem
-from autoprep.training_data import TrainingData
+from autoprep.problem_target import ProblemTarget
+from autoprep.train_data import TrainData
 
 
 class Engine:
     def __init__(self,
                  problem: Problem,
-                 training_data: TrainingData,
+                 train_data: TrainData,
                  target: ProblemTarget):
         self.__problem = problem
-        self.__training_data = training_data
+        self.__train_data = train_data
 
     def train(self):
         pass

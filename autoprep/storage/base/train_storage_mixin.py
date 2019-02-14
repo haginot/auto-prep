@@ -3,7 +3,7 @@ from pandas import DataFrame
 from typing import List, Dict
 
 
-class TrainingStorageMixin(abc.ABC):
+class TrainStorageMixin(abc.ABC):
     @abc.abstractmethod
     def get_table_names(self) -> List[str]:
         pass

@@ -1,6 +1,6 @@
 from typing import List
 
-from autoprep.storage.base.training_storage_mixin import Storage
+from autoprep.storage.base.train_storage_mixin import Storage
 
 
 class DataManager:

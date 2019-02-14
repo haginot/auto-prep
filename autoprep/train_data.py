@@ -7,7 +7,7 @@ import pandas as pd
 from autoprep.feature import Feature
 
 
-class TrainingData():
+class TrainData():
     def __init__(self,
                  features: List[Feature]):
         self.__features = features

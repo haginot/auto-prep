@@ -46,17 +46,22 @@ No.,選手名,守備,生年月日,年齢,年数,身長,体重,血液型,投打,�
 """]
 
     def setUp(self):
-        self.test_dir = tempfile.mkdtemp()
-        for i in range(0,self.num_test_file):
-            self.test_file = os.path.join(self.test_dir, f"test_data_{i}.csv")
+        self.test_train_dir = tempfile.mkdtemp()
+        self.test_model_dir = tempfile.mkdtemp()
+        for i in range(0, self.num_test_file):
+            self.test_file = os.path.join(self.test_train_dir, f"test_data_{i}.csv")
             with open(self.test_file, 'w') as fp:
                 fp.write(self.test_content[i])
 
     def tearDown(self):
-        shutil.rmtree(self.test_dir)
+        shutil.rmtree(self.test_train_dir)
+        shutil.rmtree(self.test_model_dir)
 
-    def __test_instance_file_storage(self):
-        fs = FileStorage(self.test_dir)
+    def test_instance_file_storage(self):
+        fs = FileStorage(
+            train_path=self.test_train_dir,
+            model_path=self.test_model_dir
+        )
         self.assertEqual(fs.get_table_names(), ['test_data_0', 'test_data_1', 'test_data_2'])
         self.assertEqual(fs.get_table_lists()['test_data_0']['file_size'], 951)
         self.assertEqual(fs.get_table_df('test_data_0').shape, (9, 12))
