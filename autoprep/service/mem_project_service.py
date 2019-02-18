@@ -6,7 +6,8 @@ class MemProjectService(ProjectService):
     """
     This Class is just a stub for testing.
     """
-    projects = {}
+    def __init__(self):
+        self.projects = {}
 
     def get_projects(self):
         return self.projects
