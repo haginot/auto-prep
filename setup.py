@@ -18,6 +18,6 @@ setup(
     packages=['autoprep'],
     long_description=read('README.md'),
     long_description_content_type="text/markdown",
-    install_requires=['numpy', 'pandas'],
+    install_requires=['numpy', 'scipy', 'pandas'],
     classifiers=[]
 )
